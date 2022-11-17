@@ -52,6 +52,7 @@ public class MilestoneDAO extends Db {
         return response;
 
         //Add Milestones
+        // điều chỉnh lại params 
     }
     public static void addMilestone(Milestone milestone) throws SQLException {
         Connection conn = null;
@@ -61,11 +62,11 @@ public class MilestoneDAO extends Db {
             stmt = conn.prepareStatement("INSERT INTO milestone (name, description, start_date, end_date, is_started, project_id, is_completed) VALUES (?, ?, GETDATE(), GETDATE(), ?, ?, ?)");
             stmt.setString(1, milestone.getName()); 
             stmt.setString(2, milestone.getDescription());
-            stmt.setDate(3, milestone.getStarDate());
-            stmt.setDate(4, milestone.getEndDate());
-            stmt.setBoolean(5, milestone.getIsStarted());
-            stmt.setInt(6, milestone.getProject_id());
-            stmt.setBoolean(7,milestone.getIsCompleted());
+            //stmt.setDate(3, milestone.getStarDate());
+            //stmt.setDate(4, milestone.getEndDate());
+            stmt.setBoolean(3, milestone.getIsStarted());
+            stmt.setInt(4, milestone.getProject_id());
+            stmt.setBoolean(5,milestone.getIsCompleted());
             stmt.executeUpdate();
 
         } catch (SQLException ex) {

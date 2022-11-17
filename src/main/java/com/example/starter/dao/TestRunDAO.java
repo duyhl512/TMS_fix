@@ -50,6 +50,8 @@ public class TestRunDAO extends Db {
         }
         return response;
     }
+
+    // chỉnh lại param của addTestRun
     public static void addTestRun(TestRun testRun) throws SQLException {
         Connection conn = null;
         PreparedStatement ps = null;
@@ -59,9 +61,9 @@ public class TestRunDAO extends Db {
                     + "VALUES (?, ?, GETDATE(), ?, ?, ?)");
             ps.setString(1, testRun.getName());
             ps.setString(2, testRun.getDescription());
-            ps.setInt(4, testRun.getMilestoneId()); 
-            ps.setInt(5, testRun.getUserId());
-            ps.setInt(6, testRun.getProjectid());
+            ps.setInt(3, testRun.getMilestoneId()); 
+            ps.setInt(4, testRun.getUserId());
+            ps.setInt(5, testRun.getProjectid());
             ps.executeUpdate();
         } catch (SQLException ex) {
             _LOGGER.log(Level.SEVERE, "add testrun to database failed", ex);
