@@ -22,14 +22,12 @@ public class TestRun{
     
     public TestRun() {
     }
-    public TestRun(String name, String Description, int milestoneId, int userId, int projectid, int planId, boolean isCompleted,  int assigned_to_id) {
+
+    //bỏ bớt 1 số trong contructor, chưa có test-type
+    public TestRun(String name, String Description, int milestoneId, int assigned_to_id) {
         this.name = name;
         this.Description = Description;
         this.milestoneId = milestoneId;
-        this.userId = userId;
-        this.projectid = projectid;
-        this.planId = planId;
-        this.isCompleted = isCompleted;
         this.assigned_to_id = assigned_to_id;
     }
 

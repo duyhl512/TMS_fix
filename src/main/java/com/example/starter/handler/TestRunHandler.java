@@ -13,6 +13,7 @@ public class TestRunHandler{
     }  
     private static final Logger _LOGGER = Logger.getLogger(TestRunHandler.class.getName());
 
+    // lược bỏ 1 số cho giống với API, còn test-type chưa thêm vào
     public static void addTestRun(RoutingContext rc) {
         rc.vertx().executeBlocking(future ->{
             try {
@@ -20,12 +21,12 @@ public class TestRunHandler{
                 String name = json.getString("name");
                 String Description = json.getString("Description");
                 Integer milestoneId = json.getInteger("milestoneId");
-                Integer userId = json.getInteger("userId");
-                Integer projectid = json.getInteger("projectid");
-                Integer planId = json.getInteger("planId");
-                boolean isCompleted = json.getBoolean("isCompleted");
+               // Integer userId = json.getInteger("userId");
+                //Integer projectid = json.getInteger("projectid");
+                //Integer planId = json.getInteger("planId");
+                //boolean isCompleted = json.getBoolean("isCompleted");
                 Integer assigned_to_id = json.getInteger("assigned_to_id");
-                TestRun testRun = new TestRun(name, Description, milestoneId, userId, projectid, planId, isCompleted, assigned_to_id);
+                TestRun testRun = new TestRun(name, Description, milestoneId, assigned_to_id);
                 TestRunDAO.addTestRun(testRun);
                 Util.sendResponse(rc, 200, "successfully created TestRun");
             } catch (Exception e) {

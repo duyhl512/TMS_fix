@@ -1,5 +1,6 @@
 package com.example.starter.handler;
 
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import com.example.starter.Util;
@@ -18,10 +19,12 @@ public class MilestoneHandler {
                 JsonObject json = rc.body().asJsonObject();
                 String name = json.getString("name");
                 String description = json.getString("description");
-                Boolean isStarted = json.getBoolean("isStarted");
+                //Boolean isStarted = json.getBoolean("isStarted");
+                Date starDate = json.getString("start_date");
+                Date endDate = json.getString("end_date");
                 Integer projectId = json.getInteger("projectId");
                 Boolean isCompleted = json.getBoolean("isCompleted");
-                Milestone milestone = new Milestone(name, description, projectId, isStarted, isCompleted);
+                Milestone milestone = new Milestone(name, description, starDate ,endDate ,projectId, isCompleted);
                 MilestoneDAO.addMilestone(milestone);
                 Util.sendResponse(rc, 200, "successfully created Milestone");
                 

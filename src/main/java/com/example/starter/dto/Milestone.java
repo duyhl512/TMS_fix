@@ -15,7 +15,7 @@ public class Milestone{
 
     public Milestone() {
     }
-
+/* 
     public Milestone(String name, String description, Integer project_id, boolean isStarted, boolean isCompleted) {
         this.name = name;
         Description = description;
@@ -23,6 +23,16 @@ public class Milestone{
         
         this.isStarted = isStarted;
         
+        this.isCompleted = isCompleted;
+    }
+   */ 
+    public Milestone(String name, String description, Date starDate, Date endDate,  Integer project_id,
+            boolean isCompleted) {
+        this.name = name;
+        Description = description;
+        this.project_id = project_id;
+        this.starDate = starDate;
+        this.endDate = endDate;
         this.isCompleted = isCompleted;
     }
 
